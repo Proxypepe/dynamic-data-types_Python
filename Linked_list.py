@@ -6,17 +6,21 @@ from abc import ABC, abstractmethod
 class Linked_list(ABC):
     
     @abstractmethod
-    def push_back(value: object) -> None:
+    def push_back(self, value: object) -> None:
         pass
 
     @abstractmethod 
-    def pop_back() -> None:
+    def pop_back(self) -> None:
         pass
   
     @abstractmethod
-    def push_front(value: object) -> None:
+    def push_front(self, value: object) -> None:
         pass
 
     @abstractmethod
-    def pop_front() -> None:
+    def pop_front(self) -> None:
+        pass
+
+    @abstractmethod
+    def is_empty(self) -> bool:
         pass

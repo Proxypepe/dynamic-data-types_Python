@@ -3,8 +3,8 @@
 ############
 from abc import ABC, abstractmethod
 
-class Linked_list(ABC):
-    
+class LinkedListInterface(ABC):
+
     @abstractmethod
     def push_back(self, value: object) -> None:
         pass
@@ -23,4 +23,12 @@ class Linked_list(ABC):
 
     @abstractmethod
     def is_empty(self) -> bool:
+        pass
+
+    @abstractmethod
+    def __iter__(self):
+        pass
+
+    @abstractmethod
+    def __next__(self):
         pass

@@ -1,4 +1,4 @@
-from Linked_list import LinkedListInterface
+from Linked_list import LinkedListAbstract
 
 class Node:
     def __init__(self, value: object) -> object:
@@ -6,7 +6,7 @@ class Node:
         self._prev = None
         self._value = value
 
-class DoubleList(LinkedListInterface):
+class DoubleList(LinkedListAbstract):
 
     def __init__(self):
         self.__head = None

@@ -57,6 +57,51 @@ class DoubleList(LinkedListAbstract):
             del _tmp
             self.__len -= 1
 
+    def insert_before(self, pos: int, value: object) -> None:
+        if pos > self.__len or pos < 1:
+            raise IndexError
+        else:
+            if self.is_empty():
+                self.__head = self.__tail = Node(value)
+            elif pos == 1:
+                self.push_front(value)
+            elif pos == self.__len:
+                self.push_back(value)
+            else:
+                _q = self.__head
+                _tmp = Node(value)
+                _counter = 0
+                for i in range(pos - 1):
+                    _q = _q._next
+                _tmp._next = _q
+                _tmp._prev = _q._prev
+                _q._prev._next = _tmp
+                _q._prev = _tmp
+                self.__len += 1
+
+    def insert_after(self, pos: int, value: object):
+        if pos > self.__len:
+            raise IndexError
+        else:
+            if self.is_empty():
+                self.__head = self.__tail = Node(value)
+            if pos == 1 or pos == self.__len:
+                self.push_back(value)
+            else:
+                _q = self.__head
+                _tmp = Node(value)
+                _counter = 0
+                for i in range(pos):
+                    _q = _q._next
+                _tmp._next = _q
+                _tmp._prev = _q._prev
+                _q._prev._next = _tmp
+                _q._prev = _tmp
+                self.__len += 1
+
+    def remove(self, pos: int):
+        pass
+
     def is_empty(self) -> bool:
         if self.__head is None and self.__tail is None:
             return True

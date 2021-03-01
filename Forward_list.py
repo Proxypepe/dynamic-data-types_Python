@@ -140,15 +140,15 @@ class ForwardList(Linked_list.LinkedListAbstract):
             return True
         return False
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.__len
 
-    def __iter__(self):
+    def __iter__(self) -> object:
         self.__iter = self.__head
         self.__current_position = 0
         return self
 
-    def __next__(self):
+    def __next__(self) -> object:
         self.__current_position += 1
         if self.__current_position > self.__len:
             raise StopIteration

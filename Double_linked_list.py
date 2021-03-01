@@ -99,8 +99,30 @@ class DoubleList(LinkedListAbstract):
                 _q._prev = _tmp
                 self.__len += 1
 
-    def remove(self, pos: int):
+    def erase(self, pos: int) -> None:
         pass
+
+    def remove(self, element: object) -> None:
+        if not self.is_empty():
+            _q = self.__head
+            while _q is not None:
+                if _q._value == element:
+                    if _q._prev is None:
+                        _q = _q._next
+                        self.pop_front()
+                    elif _q._next is None:
+                        self.pop_back()
+                        break
+                    else:
+                        _tmp = _q
+                        _q._prev._next = _q._next
+                        _q._next._prev = _q._prev
+                        del _tmp
+                        self.__len -= 1
+                        _q = _q._next
+                else:
+                    _q = _q._next
+
 
     def is_empty(self) -> bool:
         if self.__head is None and self.__tail is None:

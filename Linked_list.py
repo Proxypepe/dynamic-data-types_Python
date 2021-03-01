@@ -33,7 +33,7 @@ class LinkedListAbstract(ABC):
     def insert_before(self, pos: int, value: object) -> None:
         pass
 
-    def emplace_before(self, pos: int,  *values: iter):
+    def emplace_before(self, pos: int,  *values: iter) -> None:
         for value in values:
             self.insert_before(pos, value)
 
@@ -41,12 +41,16 @@ class LinkedListAbstract(ABC):
     def insert_after(self, pos: int, value: object) -> None:
         pass
 
-    def emplace_after(self, pos: int,  *values: iter):
+    def emplace_after(self, pos: int,  *values: iter) -> None:
         for value in values:
             self.insert_after(pos, value)
 
     @abstractmethod
-    def remove(self, pos: int):
+    def erase(self, pos: int) -> None:
+        pass
+
+    @abstractmethod
+    def remove(self, element: object) -> None:
         pass
 
     def remove_if(self, predicate: callable):

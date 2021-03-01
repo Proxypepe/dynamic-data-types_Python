@@ -1,5 +1,5 @@
 from Double_linked_list import DoubleList
-from Forward_list import ForwardList
+from  import ForwardList
 
 def main():
 
@@ -23,7 +23,7 @@ def main():
     myList.push_back(14)
     myList.push_back(15)
     myList.erase(4)
-    myList.push_back()
+    # myList.push_back()
 
     for i in myList:
         print(i)

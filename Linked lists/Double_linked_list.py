@@ -1,4 +1,5 @@
-from Linked_list import LinkedListAbstract
+from Linked_list_abs import LinkedListAbstract
+
 
 class Node:
     def __init__(self, value: object) -> object:

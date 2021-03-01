@@ -2,7 +2,7 @@
 # Linked list  Abstract class
 ############
 from abc import ABC, abstractmethod
-
+    
 class LinkedListAbstract(ABC):
 
     @abstractmethod

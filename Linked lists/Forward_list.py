@@ -1,4 +1,4 @@
-import Linked_list
+import Linked_list_abs
 
 
 class Node:
@@ -6,7 +6,7 @@ class Node:
         self._next = None
         self._value = value
 
-class ForwardList(Linked_list.LinkedListAbstract):
+class ForwardList(Linked_list_abs.LinkedListAbstract):
 
     def __init__(self):
         self.__head = None

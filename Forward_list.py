@@ -103,7 +103,19 @@ class ForwardList(Linked_list.LinkedListAbstract):
                 self.__len += 1
 
     def erase(self, pos: int) -> None:
-        pass
+        if not self.is_empty() and pos < self.__len:
+            if pos == 0:
+                self.pop_front()
+            elif pos == self.__len - 1:
+                self.pop_back()
+            else:
+                _q = self.__head
+                for i in range(pos - 1):
+                    _q = _q._next
+                print(f"Value{_q._value}")
+                _tmp = _q
+                _q._next = _q._next._next
+                self.__len -= 1
 
     def remove(self, element: object) -> None:
         if not self.is_empty():

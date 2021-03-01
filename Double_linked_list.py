@@ -12,10 +12,10 @@ class DoubleList(LinkedListAbstract):
         self.__head = None
         self.__tail = None
         self.__iter = None
-        self.__len  = 0
+        self.__len = 0
         self.__current_position = 0
 
-    def push_back(self, value: object):
+    def push_back(self, value: object) -> None:
         if self.is_empty():
             self.__head = self.__tail = Node(value)
         else:
@@ -100,7 +100,19 @@ class DoubleList(LinkedListAbstract):
                 self.__len += 1
 
     def erase(self, pos: int) -> None:
-        pass
+        if not self.is_empty() and pos < self.__len:
+            if pos == 0:
+                self.pop_front()
+            elif pos == self.__len - 1:
+                self.pop_back()
+            else:
+                _q = self.__head
+                for i in range(pos):
+                    _q = _q._next
+                _tmp = _q
+                _q._prev._next = _q._next
+                _q._next._prev = _q._prev
+                self.__len -= 1
 
     def remove(self, element: object) -> None:
         if not self.is_empty():
@@ -122,7 +134,6 @@ class DoubleList(LinkedListAbstract):
                         _q = _q._next
                 else:
                     _q = _q._next
-
 
     def is_empty(self) -> bool:
         if self.__head is None and self.__tail is None:
